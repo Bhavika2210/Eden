@@ -104,7 +104,7 @@ def weather_main():
 
     city_name=address['city']
 
-    api_key = "da1f94efa4d6cefb2ed01470906d553f"
+    api_key = "Your_OWN_KEY"
 
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
     
@@ -168,8 +168,8 @@ def speak(text,tp="1",voice="Salli"):
     return audio.info.length
 
 polly_client = boto3.Session(
-    aws_access_key_id="AKIASBGML26WXFHTJR5M",
-    aws_secret_access_key="ku1i9EaKATFj41PhDVI2rGE7FH6lAJQoj/wUI8nm",
+    aws_access_key_id="Your_OWN_KEY",
+    aws_secret_access_key="Your_OWN_KEY",
     region_name='us-west-2').client('polly')
 
 
