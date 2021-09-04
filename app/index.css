@@ -30,6 +30,7 @@ body {
 .mesgs {
   border-radius: 5px;
   padding: 40px;
+  width: 100%;
 }
 
 img {
@@ -129,7 +130,7 @@ img {
   color: #ffffff;
   font-size: 14px;
   margin: 0;
-  padding: 7px 10px 7px 12px;
+  padding: 10px 10px 10px 12px;
   width: 100%;
 }
 .time_date {
@@ -139,7 +140,7 @@ img {
   margin: 3px 0 0;
 }
 .received_withd_msg {
-  width: 60%;
+  width: 40%;
 }
 .mesgs {
   float: left;
@@ -157,8 +158,9 @@ img {
   font-size: 14px;
   margin: 0;
   color: #fff;
-  padding: 7px 10px 7px 12px;
+  padding: 10px 10px 10px 7px;
   border-radius: 10px;
+  
 }
 .outgoing_msg {
   overflow: hidden;
@@ -166,7 +168,7 @@ img {
 }
 .sent_msg {
   float: right;
-  width: 60%;
+  width: 40%;
   text-align: right;
 }
 .input_msg_write input {
@@ -291,7 +293,7 @@ input[type="button"]
   align-items: center;
   z-index: 9999;
   position: relative;
-  top: -50px;
+  top: -150px;
   
 }
 
