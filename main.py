@@ -27,6 +27,7 @@ import face_recognition
 import numpy as np
 import smtplib
 import datetime
+import re, requests, subprocess, urllib.parse, urllib.request
 
 
 r = sr.Recognizer()
@@ -430,6 +431,7 @@ while(1):
                     url+=i+"+"
                 
                 webbrowser.open("https://www.google.com/search?q={query}".format(query=url))
+                webbrowser.open("https://www.youtube.com/results?search_query={query}".format(query=url))
             elif(("siri" in MyText) or ("siri" in MyText) or ("siri" in MyText)):
                 comment=["She Seems Clever!","Full Respect, Being An Assistant Is Hardwork","I Know Her, She Is Amazing","You Know Her? That's Great!"]
                 timewait=speak(comment[random.randint(0,3)])
@@ -450,6 +452,34 @@ while(1):
                 for x in table.find({"_id":idd},{ "_id": 0, "location": 1}):
                     timewait=speak("Last Updated Location Is "+x["location"])
                     time.sleep(timewait)
+            elif(("youtube" in MyText)):
+                split_sentence = MyText.split(' ')
+                url=""
+                for i in split_sentence:
+                    if(i=="youtube"):
+                        continue
+                    url+=i+"+"
+
+                webbrowser.open("https://www.youtube.com/results?search_query={query}".format(query=url))
+
+            elif("play" in MyText):
+                split_sentence = MyText.split(' ')
+                url=""
+                for i in split_sentence:
+                    if(i=="play"):
+                        continue
+                    url+=i+" "
+                music_name = url
+                query_string = urllib.parse.urlencode({"search_query": music_name})
+
+
+                formatUrl = urllib.request.urlopen("https://www.youtube.com/results?" + query_string)
+                search_results = re.findall(r"watch\?v=(\S{11})", formatUrl.read().decode())
+
+                clip = requests.get("https://www.youtube.com/watch?v=" + "{}".format(search_results[0]))
+                clip2 = "https://www.youtube.com/watch?v=" + "{}".format(search_results[0])
+                #os.system("start \"\" {url}".format(url=clip2))
+                webbrowser.open(clip2)
     except sr.RequestError as e:
         print("Could not request results; {0}".format(e))
     except sr.UnknownValueError:
