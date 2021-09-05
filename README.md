@@ -100,7 +100,7 @@ Install All The Necessary Modules For The Project (Eg.)
    ```sh
    git clone https://github.com/KaranSurana/Eden.git
    ```
-3. Install NPM packages
+3. Install necessary packages
    ```sh
    pip install 'ALL_MODULES'
    ```
